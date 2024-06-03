@@ -16,7 +16,6 @@ public class Apple : MonoBehaviour
     {
         if (this.transform.position.y < bottomY) {
             Destroy(this.gameObject);
-
             applePicker.AppleDestroyed();
         }
     }

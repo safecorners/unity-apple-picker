@@ -8,11 +8,13 @@ public class HighScore : MonoBehaviour
     private ScoreManager scoreManager;
 
     private Text highScoreText;
-    void Start() {
+
+    void Start()
+    {
         this.scoreManager = Camera.main.GetComponent<ScoreManager>();
         highScoreText = this.GetComponent<Text>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         highScoreText.text = scoreManager.GetHighScore().ToString();
