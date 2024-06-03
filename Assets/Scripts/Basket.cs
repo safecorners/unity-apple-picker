@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class Basket : MonoBehaviour
 {
-    public Text scoreText;
 
+    private ScoreManager scoreManager;
     void Start()
-    {
-        GameObject ScoreUI = GameObject.Find("ScoreUI");
-        scoreText = ScoreUI.GetComponent<Text>();
-        scoreText.text = "0";
+    {  
+        scoreManager = Camera.main.GetComponent<ScoreManager>();
     }
     void Update()
     {
@@ -30,13 +28,6 @@ public class Basket : MonoBehaviour
         if (collidedWith.tag == "Apple") {
             Destroy(collidedWith);
         }
-
-        int score = int.Parse(scoreText.text);
-        score += 100;
-        scoreText.text = score.ToString();
-
-        if (score > HighScore.highScore) {
-            HighScore.highScore = score;
-        }
+        scoreManager.IncreaseScore();
     }
 }
